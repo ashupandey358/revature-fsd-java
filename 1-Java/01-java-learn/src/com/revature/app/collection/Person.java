@@ -1,6 +1,8 @@
 package com.revature.app.collection;
 
-public class Person implements Comparable<Person> {
+import java.io.Serializable;
+
+public class Person implements Comparable<Person>,Serializable {
 	private String name;
 	private int age;
 	
