@@ -1,14 +1,21 @@
-package com.revature.app.objectclass;
+package com.revature.app.garbagecollection;
 
 public class Person {
-	private String name;
-	private int age;
 	
-	public Person(String name, int age) {
+
+	private String name;
+	private long id;
+	private int age;
+	private static int count=0;
+	
+	public Person(String name, int age ) {
 		super();
+		count++;
+		this.id=count;
 		this.name = name;
 		this.age = age;
 	}
+
 
 	public String getName() {
 		return name;
@@ -17,11 +24,20 @@ public class Person {
 	public int getAge() {
 		return age;
 	}
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+		System.out.println(toString());
+	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", age=" + age + "]";
+		return "Person [name=" + name + ", id=" + id + ", age=" + age + "]";
 	}
+
 
 	@Override
 	public int hashCode() {

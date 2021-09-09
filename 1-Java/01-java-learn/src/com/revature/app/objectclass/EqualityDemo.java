@@ -1,5 +1,7 @@
 package com.revature.app.objectclass;
 
+import com.revature.app.garbagecollection.Person;
+
 public class EqualityDemo {
 	
 	public static void main(String[] args) {
