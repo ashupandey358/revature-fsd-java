@@ -1,6 +1,9 @@
 package com.bankapp.menu;
 import java.util.Scanner;
 
+import com.bankapp.login.LoginUser;
+import com.bankapp.user.CustomerUser;
+
 public class MainMenu extends Menu {
 
 	public MainMenu(String name) {
@@ -30,8 +33,16 @@ public class MainMenu extends Menu {
 
 			System.out.print("Password: ");
 			String password = scanner.nextLine();
-			Customer(firstName,)
+			CustomerUser.addCustomer(new CustomerUser(firstName,lastName, email,password));
+			System.out.println("Customer added successfully.");
+			displaySelectionhandle();
+			break;
+		case 2:
+			LoginUser loginUser = new LoginUser("Login Form");
+			loginUser.captureDataAndPerformAction();
 		}
 	}
+
+
 
 }

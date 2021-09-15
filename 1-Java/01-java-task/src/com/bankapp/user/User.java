@@ -12,6 +12,13 @@ public class User {
 		this.emailid = emailid;
 		Password = password;
 	}
+	
+	public User(String emailid, String password) {
+		super();
+		this.emailid = emailid;
+		Password = password;
+	}
+
 	public String getFirstName() {
 		return FirstName;
 	}
@@ -36,6 +43,8 @@ public class User {
 	public void setPassword(String password) {
 		Password = password;
 	}
+	
+
 	
 
 }

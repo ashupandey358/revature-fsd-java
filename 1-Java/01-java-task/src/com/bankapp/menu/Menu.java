@@ -7,6 +7,7 @@ public abstract class Menu {
 	protected String name;
 	protected ArrayList<String> menuIteams;
 	protected int choice;
+	
 	public Menu(String name) {
 		super();
 		this.name = name;
@@ -31,7 +32,7 @@ public abstract class Menu {
 		Scanner sc = new Scanner(System.in);
 		choice = Integer.parseInt(sc.nextLine());
 	}
-	public void displaySelection()
+	public void displaySelectionhandle()
 	{
 		displayMenu();
 		captureSelection();
