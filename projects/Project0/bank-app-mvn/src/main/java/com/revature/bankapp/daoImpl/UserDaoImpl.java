@@ -88,6 +88,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void createAccount(NewAccount newAccount) throws SQLException {
+		CustomerUser cu = new CustomerUser();
 		try (Connection connection = Util.getConnection()) {
 			String sql = "insert into account (aadhar,mobile_no,type,balance,customerid) values(?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -95,7 +96,7 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(2, newAccount.getMobileNumber());
 			statement.setString(3, newAccount.getAccountType());
 			statement.setString(4, newAccount.getBalance());
-			statement.setInt(5,newAccount.getCid());
+			statement.setInt(5,cu.getCid());
 			statement.executeUpdate();
 
 			connection.close();
@@ -109,13 +110,13 @@ public class UserDaoImpl implements UserDao {
 		ArrayList<NewAccount> emp = new ArrayList<NewAccount>();
 	
 		try (Connection connection = Util.getConnection()) {
-			String sql = "select type,balance from customer c inner join account a on c.id=?";
+			String sql = "select type,balance from account where customerid=?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, cid);
 			NewAccount account = new NewAccount();
 	
 			ResultSet rs = statement.executeQuery();
-			if(rs.next())
+			while(rs.next())
 			{
 			  account.setAccountType(rs.getString("type"));
 			  account.setBalance(rs.getString("balance"));

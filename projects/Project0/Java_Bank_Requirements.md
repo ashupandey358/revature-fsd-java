@@ -31,7 +31,8 @@
 		* A deposit or withdrawal of negative money.
 * As a customer, I can view the transactions in a specific account.
 * As an employee, I can approve or reject an account.
-* As an employee, I can view a customer's bank accounts.
+* As an employee, I can view a customer's bank accounts.                        ashupandey358@gmail.com
+										@Shu2000											
 * As a employee, I can register for a customer account.
 * As a customer, I can post a money transfer to another account.
 * As an employee, I can view transactions done by the customers account.

@@ -1,6 +1,5 @@
 package com.bankapp.Form;
 
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.SQLException;
 import java.util.Scanner;

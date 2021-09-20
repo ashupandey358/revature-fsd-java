@@ -13,5 +13,5 @@ public interface UserDao {
 	CustomerUser getCustomerUser(String emailid,String password) throws SQLException ;
 	EmployeeUser getEmployeeUser(String emailid) throws SQLException;
 	void createAccount(NewAccount newAccount)  throws SQLException;
-	public ArrayList<NewAccount> viewAccount(int c_id)  throws SQLException;
+	public ArrayList<NewAccount> viewAccount(int cid)  throws SQLException;
 }
