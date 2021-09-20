@@ -97,7 +97,7 @@ public class AccountModel {
 
 	@Override
 	public String toString() {
-		return "AccountModel [accountNo=" + accountNo + ", balance=" + balance + ", accountType=" + accountType + "]";
+		return "AccountDetails [accountNo=" + accountNo + ", balance=" + balance + ", accountType=" + accountType + "]";
 	}
 
 

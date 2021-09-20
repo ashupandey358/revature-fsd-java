@@ -28,7 +28,8 @@ public class CustomerMenu extends Menu {
 	@Override
 	public void handle() {
 		Scanner sc = new Scanner(System.in);
-		if (option == 1) {
+		switch (option) {
+		case 1: {
 			System.out.println("Entre Account Number :");
 			String accountNumber = sc.next();
 
@@ -60,8 +61,10 @@ public class CustomerMenu extends Menu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			mainDisplay();
+			break;
 		}
-		if (option == 2) {
+		case 2: {
 			System.out.println("Entre your Customer id :");
 			int customerId = sc.nextInt();
 			CustomerDaoImpl dao = new CustomerDaoImpl();
@@ -70,14 +73,16 @@ public class CustomerMenu extends Menu {
 				for (int i = 0; i < form.size(); i++) {
 					System.out.println((i + 1) + ".  - " + form.get(i));
 				}
-				mainDisplay();
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
+			mainDisplay();
+			break;
 		}
-		if (option == 3) {
+		case 3: {
 
 			System.out.println("Entre The Amount:-");
 			long amount = sc.nextLong();
@@ -102,7 +107,6 @@ public class CustomerMenu extends Menu {
 
 						try {
 							dao1.forWithdrawal(updateBalance, account);
-							mainDisplay();
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -116,8 +120,10 @@ public class CustomerMenu extends Menu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			mainDisplay();
+			break;
 		}
-		if (option == 4) {
+		case 4: {
 
 			System.out.println("Entre The Amount:-");
 			long amount1 = sc.nextLong();
@@ -131,7 +137,7 @@ public class CustomerMenu extends Menu {
 			try {
 				if (amount1 > 0) {
 					AccountModel c = dao2.currentAmount(account1);
-					if ((c.getBalance()) < 0 || (c.getBalance()) <= (amount1)) {
+					if ((c.getBalance()) < 0) {
 						System.out.println("Insufficent balance");
 						mainDisplay();
 					} else {
@@ -142,7 +148,7 @@ public class CustomerMenu extends Menu {
 
 						try {
 							dao3.forWithdrawal(updateBalance, account1);
-							mainDisplay();
+
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -157,27 +163,33 @@ public class CustomerMenu extends Menu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			mainDisplay();
+			break;
 		}
-		if(option==5)
-		{
+		case 5: {
 			System.out.println("Entre the account Number : ");
 			String accountNo = sc.next();
 			TransctionDaoImpl dao = new TransctionDaoImpl();
 			try {
 				ArrayList<TransctionModel> s = dao.viewTransctionforSpecificAccount(accountNo);
 				s.forEach(System.out::println);
-				mainDisplay();
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		if(option==7)
-		{
-			System.out.println("<<< ----  Thank You Have a Good Day -----  >>>>");
-			System.out.println("<<< ----     Logout Succesfully -----  >>>");
+			mainDisplay();
+			break;
 		}
 
+		case 7:
+
+		{
+
+			System.out.println("<<< ----  Thank You Have a Good Day -----  >>>>");
+			System.out.println("<<<----     Logout succesFully      ----->>>>>>");
+
+		}
+		}
 	}
 }

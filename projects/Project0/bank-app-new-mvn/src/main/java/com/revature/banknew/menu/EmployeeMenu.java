@@ -10,7 +10,7 @@ import com.revature.bankapp.dao.impl.TransctionDaoImpl;
 import com.revature.banknew.model.AccountModel;
 import com.revature.banknew.model.TransctionModel;
 
-public class EmployeeMenu extends Menu{
+public class EmployeeMenu extends Menu {
 
 	public EmployeeMenu(String name) {
 		super(name);
@@ -19,14 +19,15 @@ public class EmployeeMenu extends Menu{
 		addMenuItem("Regsister For Customr Account");
 		addMenuItem("Transtion Done by Customer");
 		addMenuItem("Exit");
-		
+
 	}
 
 	@Override
 	public void handle() {
 		Scanner sc = new Scanner(System.in);
-		
-		if (option == 2) {
+		switch (option) {
+
+		case 2: {
 			System.out.println("Entre your Customer id :");
 			int customerId = sc.nextInt();
 			CustomerDaoImpl dao = new CustomerDaoImpl();
@@ -36,13 +37,14 @@ public class EmployeeMenu extends Menu{
 					System.out.println((i + 1) + ".  - " + form.get(i));
 				}
 				mainDisplay();
+				break;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
-		if (option == 3) {
+		case 3: {
 			System.out.println("Entre Account Number :");
 			String accountNumber = sc.next();
 
@@ -70,13 +72,13 @@ public class EmployeeMenu extends Menu{
 						statusAccount, customerId));
 				System.out.println("Account details Added SuccesFully");
 				mainDisplay();
+				break;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		if(option==4)
-		{
+		case 4: {
 			System.out.println("Entre the account Number : ");
 			String accountNo = sc.next();
 			TransctionDaoImpl dao = new TransctionDaoImpl();
@@ -84,17 +86,18 @@ public class EmployeeMenu extends Menu{
 				ArrayList<TransctionModel> s = dao.viewTransctionforSpecificAccount(accountNo);
 				s.forEach(System.out::println);
 				mainDisplay();
+				break;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		if(option==5) {
+		case 5: {
 			System.out.println("<<<<<  Thank you for Visting  >>>>");
-			System.out.println("<<<<     logut Succesfully    >>>>");
-			
+			System.out.println("<<<<     logout Succesfully    >>>>");
+
 		}
 
+		}
 	}
-
 }
