@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import org.junit.jupiter.api.Test;
 
 import com.revature.bankapp.dao.impl.TransctionDaoImpl;
-import com.revature.banknew.form.AccountDetails;
+import com.revature.banknew.model.AccountModel;
 
 class CurrentAmount {
 
@@ -13,7 +13,7 @@ class CurrentAmount {
 	void test() {
 		TransctionDaoImpl dao = new TransctionDaoImpl();
 		try {
-			AccountDetails c = dao.currentAmount("501");
+			AccountModel c = dao.currentAmount("501");
 			System.out.println(c);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

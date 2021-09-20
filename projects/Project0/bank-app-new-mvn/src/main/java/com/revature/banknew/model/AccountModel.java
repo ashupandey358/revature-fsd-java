@@ -1,6 +1,6 @@
-package com.revature.banknew.form;
+package com.revature.banknew.model;
 
-public class AccountDetails {
+public class AccountModel {
 	private String accountNo;
 	private String aadharNumber;
 	private String mobileNumber;
@@ -9,11 +9,11 @@ public class AccountDetails {
 	private String accountStatus;
 	private int customerId;
 
-	public AccountDetails() {
+	public AccountModel() {
 		super();
 	}
 
-	public AccountDetails(String accountNo, String aadharNumber, String mobileNumber, long balance,
+	public AccountModel(String accountNo, String aadharNumber, String mobileNumber, long balance,
 			String accountType, String accountStatus, int customerId) {
 		super();
 		this.accountNo = accountNo;
@@ -81,7 +81,7 @@ public class AccountDetails {
 		this.customerId = customerId;
 	}
 
-	public AccountDetails(long balance, String accountType) {
+	public AccountModel(long balance, String accountType) {
 		super();
 		this.balance = balance;
 		this.accountType = accountType;
@@ -90,14 +90,14 @@ public class AccountDetails {
 
 	
 
-	public AccountDetails(long balance) {
+	public AccountModel(long balance) {
 		super();
 		this.balance = balance;
 	}
 
 	@Override
 	public String toString() {
-		return "AccountDetails [balance=" + balance + ", accountType=" + accountType + "]";
+		return "AccountModel [accountNo=" + accountNo + ", balance=" + balance + ", accountType=" + accountType + "]";
 	}
 
 

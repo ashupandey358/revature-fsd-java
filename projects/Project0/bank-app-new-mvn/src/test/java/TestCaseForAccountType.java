@@ -6,8 +6,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.revature.bankapp.dao.impl.CustomerDaoImpl;
-import com.revature.banknew.form.AccountDetails;
-import com.revature.banknew.form.CustomerForm;
+import com.revature.banknew.model.AccountModel;
+import com.revature.banknew.model.CustomerModel;
 
 class TestCaseForAccountType {
 
@@ -16,7 +16,7 @@ class TestCaseForAccountType {
 		CustomerDaoImpl dao = new CustomerDaoImpl();
 		 
 		try {
-			List<AccountDetails> form = dao.specficAccount(101);
+			List<AccountModel> form = dao.specficAccount(101);
 			for (int i = 0; i < form.size(); i++) {
 				System.out.println((i+1)+ ".  - " + form.get(i));
 			}

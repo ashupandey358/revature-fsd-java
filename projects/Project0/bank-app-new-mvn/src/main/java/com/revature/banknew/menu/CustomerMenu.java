@@ -8,9 +8,9 @@ import java.util.Scanner;
 import com.revature.bankapp.dao.TransctionDao;
 import com.revature.bankapp.dao.impl.CustomerDaoImpl;
 import com.revature.bankapp.dao.impl.TransctionDaoImpl;
-import com.revature.banknew.form.AccountDetails;
-import com.revature.banknew.form.CustomerForm;
-import com.revature.banknew.transction.Transction;
+import com.revature.banknew.model.AccountModel;
+import com.revature.banknew.model.CustomerModel;
+import com.revature.banknew.model.TransctionModel;
 
 public class CustomerMenu extends Menu {
 
@@ -22,7 +22,7 @@ public class CustomerMenu extends Menu {
 		addMenuItem("deposite");
 		addMenuItem("view the transactions in a specific account");
 		addMenuItem("post a money transfer to another account");
-		addMenuItem("Exit to Main Menu");
+		addMenuItem("Exit");
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class CustomerMenu extends Menu {
 
 			CustomerDaoImpl dao = new CustomerDaoImpl();
 			try {
-				dao.accountDetails(new AccountDetails(accountNumber, aadharNumber, mobileNumber, amount, typeAccount,
+				dao.accountModel(new AccountModel(accountNumber, aadharNumber, mobileNumber, amount, typeAccount,
 						statusAccount, customerId));
 				System.out.println("Account details Added SuccesFully");
 				mainDisplay();
@@ -66,7 +66,7 @@ public class CustomerMenu extends Menu {
 			int customerId = sc.nextInt();
 			CustomerDaoImpl dao = new CustomerDaoImpl();
 			try {
-				List<AccountDetails> form = dao.specficAccount(customerId);
+				List<AccountModel> form = dao.specficAccount(customerId);
 				for (int i = 0; i < form.size(); i++) {
 					System.out.println((i + 1) + ".  - " + form.get(i));
 				}
@@ -90,12 +90,12 @@ public class CustomerMenu extends Menu {
 			TransctionDaoImpl dao = new TransctionDaoImpl();
 			try {
 				if (amount > 0) {
-					AccountDetails c = dao.currentAmount(account);
+					AccountModel c = dao.currentAmount(account);
 					if ((c.getBalance()) < 0 || (c.getBalance()) <= (amount)) {
 						System.out.println("Insufficent balance");
 						mainDisplay();
 					} else {
-						dao.transctionCreate(new Transction(type, amount, account));
+						dao.transctionCreate(new TransctionModel(type, amount, account));
 						System.out.println("Thank You For Transction **Transction done Succesfully**");
 						long updateBalance = c.getBalance() - amount;
 						TransctionDaoImpl dao1 = new TransctionDaoImpl();
@@ -130,12 +130,12 @@ public class CustomerMenu extends Menu {
 			TransctionDaoImpl dao2 = new TransctionDaoImpl();
 			try {
 				if (amount1 > 0) {
-					AccountDetails c = dao2.currentAmount(account1);
+					AccountModel c = dao2.currentAmount(account1);
 					if ((c.getBalance()) < 0 || (c.getBalance()) <= (amount1)) {
 						System.out.println("Insufficent balance");
 						mainDisplay();
 					} else {
-						dao2.transctionCreate(new Transction(type1, amount1, account1));
+						dao2.transctionCreate(new TransctionModel(type1, amount1, account1));
 						System.out.println("Thank You For Transction **Transction done Succesfully**");
 						long updateBalance = c.getBalance() + amount1;
 						TransctionDaoImpl dao3 = new TransctionDaoImpl();
@@ -165,13 +165,18 @@ public class CustomerMenu extends Menu {
 			String accountNo = sc.next();
 			TransctionDaoImpl dao = new TransctionDaoImpl();
 			try {
-				ArrayList<Transction> s = dao.viewTransctionforSpecificAccount(accountNo);
+				ArrayList<TransctionModel> s = dao.viewTransctionforSpecificAccount(accountNo);
 				s.forEach(System.out::println);
 				mainDisplay();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		if(option==7)
+		{
+			System.out.println("<<< ----  Thank You Have a Good Day -----  >>>>");
+			System.out.println("<<< ----     Logout Succesfully -----  >>>");
 		}
 
 	}

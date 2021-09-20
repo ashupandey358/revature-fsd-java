@@ -1,17 +1,20 @@
-package com.revature.banknew.login;
+package com.revature.banknew.form;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.bankapp.dao.impl.CustomerDaoImpl;
-import com.revature.bankapp.dao.impl.EmployeeDaoImpl;
-import com.revature.banknew.form.CustomerForm;
-import com.revature.banknew.form.EmployeeForm;
+import com.revature.banknew.menu.CustomerMenu;
+import com.revature.banknew.model.CustomerModel;
 
-public class LoginEmployee extends LoginUser{
+public class LoginCustomer extends LoginUser {
+	public LoginCustomer(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
-	protected void dispalyLogin() {
+	public void dispalyLogin() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("+++++++++++++++");
 		System.out.println(name);
@@ -22,44 +25,41 @@ public class LoginEmployee extends LoginUser{
 
 		System.out.println("Password :");
 		password = sc.next();
-		
+
 	}
+
 	@Override
-	protected void loginAction() {
-	EmployeeDaoImpl cs = new EmployeeDaoImpl();
+	public void loginAction() {
+		CustomerDaoImpl cs = new CustomerDaoImpl();
 		
 
 		try {
 			
-			EmployeeForm customer = cs.getEmail(email);
+			CustomerModel customer = cs.getEmail(email);
 			if (customer == null) {
 				System.out.println("Invalid email / password");
-				int n = 5;
-				
-					dispalyLoginPage();
-				    n=n-1;
-				
-				
 				dispalyLoginPage();
 			}
 			else if (customer.getPassword().equals(password)) {
 
 				System.out.println("Login Successful.");
-				System.out.println("Welcome " + customer.getName() );
+				System.out.println("Welcome " + customer.getFirstName() + " " + customer.getLastName());
+				CustomerMenu menu = new CustomerMenu("Customer Menu Items");
+				menu.mainDisplay();
+				
 
 			}
 
 			else {
 
 				System.out.println("Invalid email / password");
-				int n = 5;
-
 				dispalyLoginPage();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 }

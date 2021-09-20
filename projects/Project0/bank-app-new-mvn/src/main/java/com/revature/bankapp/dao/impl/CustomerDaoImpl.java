@@ -10,13 +10,13 @@ import java.util.List;
 import com.revature.bankapp.dao.CustomerDao;
 
 import com.revature.bankapp.dao.UtilNew;
-import com.revature.banknew.form.AccountDetails;
-import com.revature.banknew.form.CustomerForm;
+import com.revature.banknew.model.AccountModel;
+import com.revature.banknew.model.CustomerModel;
 
 public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
-	public void customerData(CustomerForm customer) throws SQLException {
+	public void customerData(CustomerModel customer) throws SQLException {
 
 		try (Connection connection = UtilNew.getConnection()) {
 			String query = "INSERT INTO customer (Customer_id, first_name, last_name, email_id, password) VALUES (?, ?,?,?,?)";
@@ -36,8 +36,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public CustomerForm getEmail(String email) throws SQLException {
-		CustomerForm customer = null;
+	public CustomerModel getEmail(String email) throws SQLException {
+		CustomerModel customer = null;
 		try (Connection connection = UtilNew.getConnection()) {
 			String query = "SELECT * FROM customer where email_id=?";
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -48,7 +48,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				String lastNmae = result.getString("last_name");
 				String emails = result.getString("email_id");
 				String passwords = result.getString("password");
-				customer = new CustomerForm(firstNmae, lastNmae, emails, passwords);
+				customer = new CustomerModel(firstNmae, lastNmae, emails, passwords);
 
 			}
 
@@ -58,9 +58,9 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public void accountDetails(AccountDetails account) throws SQLException {
+	public void accountModel(AccountModel account) throws SQLException {
 		try (Connection connection = UtilNew.getConnection()) {
-			CustomerForm customer = new CustomerForm();
+			CustomerModel customer = new CustomerModel();
 			String sql = "insert into account (account_no , aadhar_no , phone , balance, accounttype ,status,Customer_id) values(?,?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, account.getAccountNo());
@@ -77,18 +77,20 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public ArrayList<AccountDetails> specficAccount(int custmoer_id) throws SQLException {
-		ArrayList<AccountDetails> accountList = new ArrayList<>();
+	public ArrayList<AccountModel> specficAccount(int custmoer_id) throws SQLException {
+		ArrayList<AccountModel> accountList = new ArrayList<>();
 		try (Connection connection = UtilNew.getConnection()) {
-			CustomerForm customer = new CustomerForm();
-			String sql = "select accounttype, balance from account where Customer_id= ? ";
+			CustomerModel customer = new CustomerModel();
+			String sql = "select accounttype, balance,account_no from account where Customer_id= ? ";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setInt(1, custmoer_id);
 			ResultSet resultset = statement.executeQuery();
 			while (resultset.next()) {
-				AccountDetails account = new AccountDetails();
+				AccountModel account = new AccountModel();
+				account.setAccountNo(resultset.getString("account_no"));
 				account.setAccountType(resultset.getString("accounttype"));
 				account.setBalance(resultset.getLong("balance"));
+				
 				accountList.add(account);
 			}
 		}

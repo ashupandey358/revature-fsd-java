@@ -1,4 +1,4 @@
-package com.revature.banknew.login;
+package com.revature.banknew.form;
 
 import java.util.Scanner;
 

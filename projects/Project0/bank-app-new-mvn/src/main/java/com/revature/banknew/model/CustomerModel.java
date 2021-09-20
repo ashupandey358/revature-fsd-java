@@ -1,6 +1,6 @@
-package com.revature.banknew.form;
+package com.revature.banknew.model;
 
-public class CustomerForm {
+public class CustomerModel {
 	
 	
 	
@@ -9,7 +9,7 @@ public class CustomerForm {
 	private String lastName;
 	private String email;
 	private String Password;
-	public CustomerForm() {
+	public CustomerModel() {
 		super();
 	}
 	
@@ -18,7 +18,7 @@ public class CustomerForm {
 
 
 
-	public CustomerForm(String firstName) {
+	public CustomerModel(String firstName) {
 		super();
 		this.firstName = firstName;
 	}
@@ -28,7 +28,7 @@ public class CustomerForm {
 
 
 
-	public CustomerForm(String firstName, String lastName, String email, String password) {
+	public CustomerModel(String firstName, String lastName, String email, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -41,7 +41,7 @@ public class CustomerForm {
 
 
 
-	public CustomerForm(int id, String firstName, String lastName, String email, String password) {
+	public CustomerModel(int id, String firstName, String lastName, String email, String password) {
 		super();
 		this.id = id;
 		this.firstName = firstName;

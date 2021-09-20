@@ -1,23 +1,23 @@
-package com.revature.banknew.form;
+package com.revature.banknew.model;
 
-public class EmployeeForm {
+public class EmployeeModel {
 	private int employeeId;
 	private String name;
 	private String email;
 	private String password;
 	private String department;
-	public EmployeeForm() {
+	public EmployeeModel() {
 		super();
 	}
 	
-	public EmployeeForm(String name, String email, String password) {
+	public EmployeeModel(String name, String email, String password) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
 
-	public EmployeeForm(int employeeId, String name, String email, String password, String department) {
+	public EmployeeModel(int employeeId, String name, String email, String password, String department) {
 		super();
 		this.employeeId = employeeId;
 		this.name = name;

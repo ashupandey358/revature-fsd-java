@@ -1,9 +1,10 @@
 package com.revature.bankapp.dao;
 
 import java.sql.SQLException;
-import com.revature.banknew.form.EmployeeForm;
+
+import com.revature.banknew.model.EmployeeModel;
 
 public interface EmployeeDao {
-	void employeeData(EmployeeForm employee) throws SQLException;
-	public EmployeeForm getEmail(String email) throws SQLException;
+	void employeeData(EmployeeModel employee) throws SQLException;
+	public EmployeeModel getEmail(String email) throws SQLException;
 }

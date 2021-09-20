@@ -1,14 +1,14 @@
-package com.revature.banknew.form;
+package com.revature.banknew.model;
 
-public class UserForm {
+public class UserModel {
 	private String name;
     private String emailId;
     private String password;
-	public UserForm(String name) {
+	public UserModel(String name) {
 		super();
 		this.name = name;
 	}
-	public UserForm(String emailId, String password) {
+	public UserModel(String emailId, String password) {
 		super();
 		this.emailId = emailId;
 		this.password = password;

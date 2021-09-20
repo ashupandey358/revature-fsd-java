@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import org.junit.jupiter.api.Test;
 
 import com.revature.bankapp.dao.impl.EmployeeDaoImpl;
-import com.revature.banknew.form.EmployeeForm;
+import com.revature.banknew.model.EmployeeModel;
 
 class TestLoginForEmployee {
 
@@ -13,7 +13,7 @@ class TestLoginForEmployee {
 	void test() {
 		EmployeeDaoImpl dao = new EmployeeDaoImpl();
 		try {
-			EmployeeForm c = dao.getEmail("ankitasingh123");
+			EmployeeModel c = dao.getEmail("ankitasingh123");
 					
 			System.out.println(c);
 		} catch (SQLException e) {

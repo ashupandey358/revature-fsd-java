@@ -1,16 +1,16 @@
-package com.revature.banknew.transction;
+package com.revature.banknew.model;
 
-public class Transction {
+public class TransctionModel {
 
 	private String transctionType;
 	private long amount;
 	private String accountNumber;
 
-	public Transction() {
+	public TransctionModel() {
 		super();
 	}
 
-	public Transction(String transctionType, long amount, String accountNumber) {
+	public TransctionModel(String transctionType, long amount, String accountNumber) {
 		super();
 		this.transctionType = transctionType;
 		this.amount = amount;

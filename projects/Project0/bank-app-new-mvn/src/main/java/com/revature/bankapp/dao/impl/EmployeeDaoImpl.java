@@ -7,13 +7,13 @@ import java.sql.SQLException;
 
 import com.revature.bankapp.dao.EmployeeDao;
 import com.revature.bankapp.dao.UtilNew;
-import com.revature.banknew.form.CustomerForm;
-import com.revature.banknew.form.EmployeeForm;
+import com.revature.banknew.model.CustomerModel;
+import com.revature.banknew.model.EmployeeModel;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
-	public void employeeData(EmployeeForm employee) throws SQLException {
+	public void employeeData(EmployeeModel employee) throws SQLException {
 		try (Connection connection = UtilNew.getConnection()) {
 			String query = "INSERT INTO employee (employee_id, name, email, password, deparment) VALUES (?, ?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -27,9 +27,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeeForm getEmail(String email) throws SQLException {
+	public EmployeeModel getEmail(String email) throws SQLException {
 		
-		EmployeeForm employee = null;
+		EmployeeModel employee = null;
 		try(Connection connection = UtilNew.getConnection()){
 			String query = "SELECT * FROM employee where email=?";
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -40,7 +40,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				String name = result.getString("name");
 				String emails = result.getString("email");
 				String passwords = result.getString("password");
-				employee = new EmployeeForm(name,emails,passwords);
+				employee = new EmployeeModel(name,emails,passwords);
 				
 			}
 			

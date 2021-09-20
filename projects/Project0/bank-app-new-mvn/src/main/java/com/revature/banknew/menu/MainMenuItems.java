@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 import com.revature.bankapp.dao.impl.CustomerDaoImpl;
 import com.revature.bankapp.dao.impl.EmployeeDaoImpl;
-import com.revature.banknew.form.CustomerForm;
-import com.revature.banknew.form.EmployeeForm;
-import com.revature.banknew.login.LoginCustomer;
-import com.revature.banknew.login.LoginEmployee;
+import com.revature.banknew.form.LoginCustomer;
+import com.revature.banknew.form.LoginEmployee;
+import com.revature.banknew.model.CustomerModel;
+import com.revature.banknew.model.EmployeeModel;
 
 public class MainMenuItems extends Menu {
 
@@ -48,7 +48,7 @@ public class MainMenuItems extends Menu {
 
 				CustomerDaoImpl customer = new CustomerDaoImpl();
 				try {
-					customer.customerData(new CustomerForm(id, firstName, lastName, emailId, password));
+					customer.customerData(new CustomerModel(id, firstName, lastName, emailId, password));
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -75,7 +75,7 @@ public class MainMenuItems extends Menu {
 
 				EmployeeDaoImpl emp = new EmployeeDaoImpl();
 				try {
-					emp.employeeData(new EmployeeForm(id, name, emailId, password, department));
+					emp.employeeData(new EmployeeModel(id, name, emailId, password, department));
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -93,12 +93,13 @@ public class MainMenuItems extends Menu {
 		}
 		if(option == 3)
 		{
-			LoginEmployee employee = new LoginEmployee();
+			LoginEmployee employee = new LoginEmployee("Login Form");
 			employee.dispalyLoginPage();
 		}
 		if(option == 4)
 		{
 			System.out.println("Logout SuccesFully");
+			
 		}
 		
 
