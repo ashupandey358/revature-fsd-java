@@ -5,11 +5,14 @@
     </head>
     <body>
         <h1>Deom Form</h1>
-        <form>
+        <form method="post" action="https://www.w3schools.com/action_page.php">
             <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="entre name" value ="jhon"><br><br>
+            <input type="text" id="name" placeholder="entre name" value ="jhon" name="name"><br><br>
             <label for="pass">password</label>
-            <input type="password"id="pass6" placeholder="password min 8 char"><br><br>
+            <input type="password"id="pass6" placeholder="password min 8 char" required name="password"><br><br>
+            <label for="email">Email: </label>
+            <input type="text" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.9.-]+\.[a-z]{2,}$" title="Enter valid Email." name="email"><br><br>
+
             <select>
                 
                 <option>Red</option>
@@ -19,9 +22,9 @@
 
             </select><br><br>
             <label>Gender</label><br>
-            <input type="radio" name="Gender" id="male">
+            <input type="radio" name="Gender" value ="m" id="male">
             <label for="male">Male</label>
-            <input type="radio" name="Gender" id="female" checked>   <!--checked   is use to select radio button-->
+            <input type="radio" name="Gender" value="f" id="female" checked>   <!--checked   is use to select radio button-->
             <label for="female">FeMale</label> <br><br>  <!-- //radio is use for selecting the data; -->
             
             <select multiple>
@@ -33,13 +36,13 @@
 
             </select><br><br>
 
-            <input type="checkbox" id="English">
+            <input type="checkbox" id="English" name="subject" value="English">
             <label for="English">English</label><br>
-            <input type="checkbox" id="Cpp" checked>
+            <input type="checkbox" id="Cpp" value="Cpp" name="subject" checked>
             <label for="Cpp" >Cpp</label></label><br>
-            <input type="checkbox" id="Java">
+            <input type="checkbox" id="Java" value="java" name="subject">
             <label for="java">java</label></label><br>
-            <input type="checkbox" id="python">
+            <input type="checkbox" id="python" value="python" name="subject">
             <label for="python">python</label></label><br>
             <textarea></textarea>
             <input type="submit" value="Login">

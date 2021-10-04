@@ -13,7 +13,7 @@ class TransctionInsertData {
 	void test() {
 		TransctionDaoImpl dao = new TransctionDaoImpl();
 		try {
-			dao.transctionCreate(new TransctionModel("W",4000,"501"));
+			dao.transctionCreate(new TransctionModel("D",40,"503"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

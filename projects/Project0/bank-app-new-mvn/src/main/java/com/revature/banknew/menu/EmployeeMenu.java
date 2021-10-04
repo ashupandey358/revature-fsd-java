@@ -26,6 +26,17 @@ public class EmployeeMenu extends Menu {
 	public void handle() {
 		Scanner sc = new Scanner(System.in);
 		switch (option) {
+		case 1:{
+			System.out.println("Entre the Account Number ");
+			String accountNo = sc.next();
+			System.out.println("Entre your choice");
+			System.out.println("1. For accpet");
+			System.out.println("2. For reject");
+			int choice = sc.nextInt();
+			if(choice == 1) {
+				
+			}
+		}
 
 		case 2: {
 			System.out.println("Entre your Customer id :");

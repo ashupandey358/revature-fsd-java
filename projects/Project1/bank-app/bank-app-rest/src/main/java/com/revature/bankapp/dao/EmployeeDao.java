@@ -1,0 +1,12 @@
+package com.revature.bankapp.dao;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.revature.bankapp.exception.AppException;
+import com.revature.banknew.model.Employee;
+
+public interface EmployeeDao {
+	void employeeData(Employee employee) throws SQLException;
+	public ArrayList<Employee> getEmail() throws AppException;
+}

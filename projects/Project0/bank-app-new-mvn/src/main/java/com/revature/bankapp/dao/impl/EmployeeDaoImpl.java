@@ -21,7 +21,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			statement.setString(2, employee.getName());
 			statement.setString(3, employee.getEmail());
 			statement.setString(4, employee.getPassword());
-			statement.setString(5, employee.getPassword());
+			statement.setString(5, employee.getDepartment());
 			statement.executeUpdate();
 		}
 	}

@@ -181,6 +181,78 @@ public class CustomerMenu extends Menu {
 			mainDisplay();
 			break;
 		}
+		case 6: {
+			System.out.println("Entre The Amount:-");
+			long amount = sc.nextLong();
+
+			System.out.println("Entre The accountNumber:-");
+			String account = sc.next();
+
+			TransctionDaoImpl dao = new TransctionDaoImpl();
+			try {
+				if (amount > 0) {
+					AccountModel c = dao.currentAmount(account);
+					if ((c.getBalance()) < 0 || (c.getBalance()) < (amount)) {
+						System.out.println("Insufficent balance");
+						mainDisplay();
+					} else {
+						long updateBalance = c.getBalance() - amount;
+						TransctionDaoImpl dao1 = new TransctionDaoImpl();
+
+						try {
+							dao1.forWithdrawal(updateBalance, account);
+							
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+				} else {
+					System.out.println("%%% Invalid Amount %%%");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("");
+			System.out.println("Entre The accountNumber where you transefer your money:-");
+			String account1 = sc.next();
+
+			TransctionDaoImpl dao2 = new TransctionDaoImpl();
+			if(Integer.parseInt(account)!=Integer.parseInt(account1))
+			{
+				
+			try {
+
+				AccountModel c = dao2.currentAmount(account1);
+
+				long updateBalance = c.getBalance() + amount;
+				TransctionDaoImpl dao3 = new TransctionDaoImpl();
+
+				try {
+					dao3.forWithdrawal(updateBalance, account1);
+					System.out.println("<<< ----  Transfer succesfully -----  >>>>");
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}else
+			{
+				System.out.println("Account Number Is Same It is Not possible");
+			}
+			
+			
+			mainDisplay();
+			break;
+		
+		}
 
 		case 7:
 
@@ -188,6 +260,7 @@ public class CustomerMenu extends Menu {
 
 			System.out.println("<<< ----  Thank You Have a Good Day -----  >>>>");
 			System.out.println("<<<----     Logout succesFully      ----->>>>>>");
+			break;
 
 		}
 		}
