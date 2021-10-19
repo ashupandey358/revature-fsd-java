@@ -3,14 +3,14 @@ package com.revature.banknew.model;
 public class Transction {
 
 	private String transctionType;
-	private long amount;
+	private int amount;
 	private String accountNumber;
 
 	public Transction() {
 		super();
 	}
 
-	public Transction(String transctionType, long amount, String accountNumber) {
+	public Transction(String transctionType, int amount, String accountNumber) {
 		super();
 		this.transctionType = transctionType;
 		this.amount = amount;
@@ -25,11 +25,11 @@ public class Transction {
 		this.transctionType = transctionType;
 	}
 
-	public long getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 

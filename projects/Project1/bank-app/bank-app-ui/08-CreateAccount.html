@@ -33,35 +33,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span class="badge badge-pill badge-primary">about</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="02-Login.html" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="badge badge-pill badge-primary">login</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="02-Login.html"><span
-                                class="badge badge-pill badge-secondary">customer</span></a>
-                        <a class="dropdown-item" href="02-Login.html"><span
-                                class="badge badge-pill badge-secondary">employee</span></a>
-
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="01-homebank.html"><span class="badge badge-pill badge-primary">Logout</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="badge badge-pill badge-primary">sign up</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="03-Signup.html"><span
-                                class="badge badge-pill badge-secondary">customer</span>
-                        </a>
-                        <a class="dropdown-item" href="09-Signupemployee.html"><span
-                                class="badge badge-pill badge-secondary">employee</span>
-                        </a>
-
-                    </div>
-                </li>
-
+                
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -69,43 +44,44 @@
             </form>
         </div>
     </nav>
+    <div class="headerBlur">
+        <h2 class="display-5 text-center " style="font-weight: bold;">Create New Account</h2>
+    </div><br>
     <div class="container mt-4">
+        <div id="success" class="alert alert-success"></div>
+        <div id="error" class="alert alert-danger"></div><br>
         <form class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip01">Account Number</label>
-                    <input type="text" class="form-control is-" id="validationTooltip01" required>
-                    <div class="invalid-tooltip">
-                        Please provide account number
-                    </div>
+                    <label for="accountNo">Account Number</label>
+                    <input type="text" class="form-control is-" id="accountNo" required>
+                    
                 </div>
+                <div id="accountNoerror" class="validation-error"></div>
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Aadhar Number</label>
-                    <input type="text" class="form-control" id="validationTooltip02"  required>
-                    <div class="invalid-tooltip">
-                       Please provide Aadhar Number
-                    </div>
+                    <label for="aadharNo">Aadhar Number</label>
+                    <input type="text" class="form-control" id="aadharNo" required>
+                    
                 </div>
+                <div id="aadharerror" class="validation-error"></div>
             </div>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip03">Phone Number</label>
-                    <input type="text" class="form-control" id="validationTooltip03" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid phone number
-                    </div>
+                    <label for="phoneno">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneno" required>
+                     
                 </div>
+                <div id="phonenoError" class="validation-error"></div>
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip05">Balance</label>
-                    <input type="text" class="form-control" id="validationTooltip05" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid balance
-                    </div>
+                    <label for="balance">Balance</label>
+                    <input type="text" class="form-control" id="balance" required>
+                    
                 </div>
+                <div id="balanceError" class="validation-error"></div>
                 <div class="col-md-6 mb-3">
 
-                    <label for="validationTooltip04">Acccount type</label>
-                    <select class="custom-select" id="validationTooltip04" required>
+                    <label for="accounttype">Acccount type</label>
+                    <select class="custom-select" id="accounttype" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Saving Account</option>
                         <option>Current Account</option>
@@ -114,15 +90,15 @@
                         <option>Fixed deposite Account</option>
                         <option>NRI Account</option>
                     </select>
-                    <div class="invalid-tooltip">
-                        Please select a valid type
-                    </div>
+                    
                 </div>
+                <div id="accounttypeError" class="validation-error"></div>
             </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="button" id="createAccountButton">Submit form</button>
         </form>
     </div>
-
+    
+    <script src="script/createaccount.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

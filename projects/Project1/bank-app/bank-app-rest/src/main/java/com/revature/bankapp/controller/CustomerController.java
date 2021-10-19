@@ -18,25 +18,43 @@ import org.slf4j.LoggerFactory;
 import com.revature.bankapp.dao.CustomerDao;
 import com.revature.bankapp.dao.impl.CustomerDaoImpl;
 import com.revature.bankapp.exception.AppException;
-import com.revature.banknew.model.Account;
 import com.revature.banknew.model.Customer;
 
 @Path("/customers")
 public class CustomerController {
 	CustomerDao dao = new CustomerDaoImpl();
-	ArrayList<Account> account = new ArrayList<>();
+	private static Customer currentCustomer;
+	public static Customer getCurrentCustomer() {
+		return currentCustomer;
+	}
+
+	public static void setCurrentCustomer(Customer currentCustomer) {
+		CustomerController.currentCustomer = currentCustomer;
+	}
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 
 	@GET
-	@Path("/{email}")
+	@Path("/{email}/{password}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response loginDetails(@PathParam("email") String email) {
+	public Response loginDetails(@PathParam("email") String email, @PathParam("password") String password) {
 		LOGGER.info("Start");
-		LOGGER.debug("{}", email);
+
 		try {
 			Customer customer = new Customer();
 			customer = dao.getLoginDetails(email);
-			return Response.ok().entity(customer).build();
+			if (customer == null) {
+				LOGGER.info("Invalid Password or Email");
+				return Response.status(401).build();
+			} else if (customer.getPassword().equals(password)) {
+				LOGGER.info("Login Successful");
+				LOGGER.debug("{}", customer);
+				CustomerController.setCurrentCustomer(customer);
+				return Response.ok().entity(customer).build();
+			} else {
+				LOGGER.info("Invalid Password or Email");
+				return Response.status(401).build();
+			}
 		} catch (AppException e) {
 			return Response.status(500).build();
 
@@ -62,43 +80,6 @@ public class CustomerController {
 			return Response.status(500).build();
 
 		}
-	}
-
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/addaccount")
-	public Response createAccount(Account account) {
-		LOGGER.info("Start");
-		LOGGER.debug("{}", account);
-
-		try {
-			dao.account(account);
-
-			LOGGER.info("End");
-			return Response.ok().build();
-		} catch (AppException e) {
-			return Response.status(500).build();
-
-		}
-
-	}
-
-	@GET
-	@Path("/id")
-	@Produces(MediaType.APPLICATION_JSON)
-
-	public Response getListaccount(@PathParam("id") int id) {
-		LOGGER.info("Start");
-		LOGGER.debug("{}", id);
-
-		try {
-			dao.specficAccount(id);
-			LOGGER.info("End");
-			return Response.ok().entity(account).build();
-		} catch (AppException e) {
-			return Response.status(500).build();
-		}
-
 	}
 
 }

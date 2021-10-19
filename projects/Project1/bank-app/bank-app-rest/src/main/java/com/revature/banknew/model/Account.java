@@ -6,23 +6,20 @@ public class Account {
 	private String mobileNumber;
 	private long balance;
 	private String accountType;
-	private String accountStatus;
-	private int customerId;
 
 	public Account() {
 		super();
 	}
 
 	public Account(String accountNo, String aadharNumber, String mobileNumber, long balance,
-			String accountType, String accountStatus, int customerId) {
+			String accountType) {
 		super();
 		this.accountNo = accountNo;
 		this.aadharNumber = aadharNumber;
 		this.mobileNumber = mobileNumber;
 		this.balance = balance;
 		this.accountType = accountType;
-		this.accountStatus = accountStatus;
-		this.customerId = customerId;
+	
 	}
 
 	public String getAccountNo() {
@@ -65,22 +62,7 @@ public class Account {
 		this.accountType = accountType;
 	}
 
-	public String getAccountStatus() {
-		return accountStatus;
-	}
-
-	public void setAccountStatus(String accountStatus) {
-		this.accountStatus = accountStatus;
-	}
-
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-
+	
 	public Account(long balance, String accountType) {
 		super();
 		this.balance = balance;
@@ -97,8 +79,11 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "AccountDetails [accountNo=" + accountNo + ", balance=" + balance + ", accountType=" + accountType + "]";
+		return "Account [accountNo=" + accountNo + ", aadharNumber=" + aadharNumber + ", mobileNumber=" + mobileNumber
+				+ ", balance=" + balance + ", accountType=" + accountType + "]";
 	}
+
+	
 
 
 

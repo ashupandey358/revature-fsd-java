@@ -78,7 +78,9 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public void account(Account account) throws AppException {
+	public void createaccount(Account account,int customer_id) throws AppException {
+		LOGGER.info("start");
+		LOGGER.debug("{}",account);
 		try (Connection connection = UtilNew.getConnection()) {
 			Customer customer = new Customer();
 			String sql = "insert into account (account_no , aadhar_no , phone , balance, accounttype,Customer_id) values(?,?,?,?,?,?)";
@@ -89,7 +91,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			statement.setLong(4, account.getBalance());
 			statement.setString(5, account.getAccountType());
 		
-			statement.setInt(6, account.getCustomerId());
+			statement.setInt(6, customer_id);
 			statement.executeUpdate();
 			statement.close();
 		}
@@ -101,7 +103,9 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public ArrayList<Account> specficAccount(int custmoer_id) throws AppException{
+	public ArrayList<Account> getaccountDetails(int custmoer_id) throws AppException{
+		LOGGER.info("start");
+		LOGGER.debug("{}",custmoer_id);
 		ArrayList<Account> accountList = new ArrayList<>();
 		try (Connection connection = UtilNew.getConnection()) {
 			Customer customer = new Customer();
@@ -123,6 +127,31 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
         
 		return accountList;
+
+	}
+
+	@Override
+	public Account getAccount(int custmoer_id) throws AppException{
+		LOGGER.info("start");
+		LOGGER.debug("{}",custmoer_id);
+		Account account = new Account();
+		try (Connection connection = UtilNew.getConnection()) {
+			Customer customer = new Customer();
+			String sql = "select accounttype, balance,account_no from account where Customer_id= ? ";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, custmoer_id);
+			ResultSet resultset = statement.executeQuery();
+			while (resultset.next()) {
+				account.setAccountNo(resultset.getString("account_no"));
+				account.setAccountType(resultset.getString("accounttype"));
+				account.setBalance(resultset.getLong("balance"));
+			}
+		}catch (SQLException e) {
+			LOGGER.error("error inserting customer",e);
+			throw new AppException(e);
+		}
+        
+		return account;
 
 	}
 
