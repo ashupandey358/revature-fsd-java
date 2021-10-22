@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { movies } from '../data';
 import { Movie } from '../movie/model/movie';
+import { movies } from '../data';
 
 @Component({
   selector: 'app-edit-movie',
@@ -9,25 +9,21 @@ import { Movie } from '../movie/model/movie';
   styleUrls: ['./edit-movie.component.css']
 })
 export class EditMovieComponent implements OnInit {
-
   movie!: Movie;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    let id: any = this.route.snapshot.paramMap.get('id');
+    let id : any = this.route.snapshot.paramMap.get('id');
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].id == id) {
         this.movie = movies[i];
       }
     }
-
-
   }
+
   onSubmit(): void {
     console.log(JSON.stringify(this.movie));
   }
-
 
 }

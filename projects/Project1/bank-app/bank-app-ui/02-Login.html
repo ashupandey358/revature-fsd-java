@@ -13,7 +13,7 @@
   <title>login</title>
 </head>
 
-<body>
+<body background="images/background.jpg"z>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="01-homebank.html">
       <img src="images/istockphoto-1272385876-170667a.jpg" width="30" height="30" class="d-inline-block align-top"
@@ -63,15 +63,16 @@
         </li>
 
       </ul>
-      <form class="form-inline my-2 my-lg-0"></form>
+      <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+    </form>
+</div>
   </nav>
-  <div class="container mt-3">
 
-    <h3 style="position:absolute;right:14cm;background-color:blueviolet">Welcome To Login Page</h3>
+  <div class="container mt-3 ">
+
+    <h3 style="position:absolute;right:12cm;background-color:blueviolet">Welcome To Login Page</h3>
 
   </div><br><br><br>
   <div class="containt">
@@ -81,30 +82,31 @@
 
   <div class="container-lg mt-4">
     <form>
-      <div class="row mb-3">
-        <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="row row justify-content-center align-items-center mb-3">
+        <label for="email" class="col-sm-2 col-form-label"></label>
         <div class="col-lg-6">
-          <input type="email" class="form-control" id="email">
+          <input type="email" class="form-control" id="email" placeholder="EmailId">
         </div>
         <div style="color: black; font-size:large; position:absolute;right:15cm;" id="emailError"
           class="validation-error col-md-4 mt-5 mx-4 alert-danger "></div><br><br><br>
       </div>
-      <div class="row mb-3">
-        <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="row mb-3 row justify-content-center align-items-center">
+        <label for="password" class="col-sm-2 col-form-label"></label>
         <div class="col-lg-6">
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" placeholder="password">
         </div>
         <div style="color: black; font-size:large; position:absolute;right:15cm;" id="passworderror"
           class="validation-error col-md-4 mt-5 mx-4 alert-danger "></div><br><br><br>
       </div>
-      <button type="button" class="btn btn-primary" id="submit">Sign in</button>
+      <div class="row row justify-content-center align-items-center">
+        <button type="button" class="btn btn-primary" id="submit">Sign in</button>
+      </div>
+      
     </form>
   </div><br><br><br>
-  <div class="container-fluid mt-4">
-    <img src="images/photo-1527788263495-3518a5c1c42d.jpg">
-  </div>
-  <script src="script/login.js"></script>
-
+  
+<script src="script/login.js"></script>
+<script src="script/employeelogin.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

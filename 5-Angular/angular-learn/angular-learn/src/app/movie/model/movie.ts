@@ -5,12 +5,11 @@ export interface Movie {
   id: number,
   title: string,
   genres: Genre[],
-  releaseDate: String,
+  releaseDate: string,
   mpaaRating: MpaaRating,
   rating: number,
   duration: number,
   budget: number,
   favorite: boolean,
   bookingsOpen: boolean
-
 }

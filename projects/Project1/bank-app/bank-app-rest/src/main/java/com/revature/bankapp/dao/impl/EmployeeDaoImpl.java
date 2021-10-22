@@ -20,7 +20,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 
 	@Override
-	public void employeeData(Employee employee) throws SQLException {
+	public void create(Employee employee) throws AppException {
+		LOGGER.info("start");
+		LOGGER.debug("{}",employee);
 		try (Connection connection = UtilNew.getConnection()) {
 			String query = "INSERT INTO employee (employee_id, name, email, password, deparment) VALUES (?, ?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
@@ -30,26 +32,33 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			statement.setString(4, employee.getPassword());
 			statement.setString(5, employee.getDepartment());
 			statement.executeUpdate();
+			LOGGER.debug("Queary excute succesfully");
+			LOGGER.info("end");
+		}
+		catch (SQLException e) {
+			LOGGER.error("error inserting customer",e);
+			throw new AppException(e);
 		}
 	}
 
 	@Override
-	public ArrayList<Employee> getEmail() throws AppException {
+	public Employee getLoginDetails(String email) throws AppException {
 		LOGGER.info("Start");
 		LOGGER.debug("{}");
-		ArrayList<Employee> employees = new ArrayList<>();
 		Employee employee =null;
 		try(Connection connection = UtilNew.getConnection()){
-			String query = "SELECT * FROM employee";
+			String query = "SELECT * FROM employee where email=?";
 			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setString(1, email);
+	
 			ResultSet result = statement.executeQuery();
-			while(result.next())
+			if(result.next())
 			{
 				String name = result.getString("name");
 				String emails = result.getString("email");
 				String passwords = result.getString("password");
 				employee = new Employee(name,emails,passwords);
-				employees.add(employee);
+	
 			}
 		}
 			catch(SQLException e){
@@ -58,7 +67,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			}
 			
 		
-		return employees;
+		return employee;
 		
 	}
 

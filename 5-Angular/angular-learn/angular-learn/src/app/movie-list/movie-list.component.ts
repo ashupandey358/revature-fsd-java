@@ -8,7 +8,6 @@ import { Movie } from '../movie/model/movie';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-
   movies: Movie[] = movies;
   searchKey: string = "";
 
@@ -16,9 +15,11 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   signalFromChild(): void {
     console.log("Signal from child component received.");
   }
+
   findMovies() : void {
     let matchingMovies = [];
     for (let movie of movies) {
@@ -28,6 +29,4 @@ export class MovieListComponent implements OnInit {
     }
     this.movies = matchingMovies;
   }
-
-
 }

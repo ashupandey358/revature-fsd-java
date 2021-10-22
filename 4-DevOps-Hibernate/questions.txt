@@ -1,0 +1,81 @@
+Hibernate
+=========
+What is the expanded form for JPA?
+What is the expanded form for ORM?
+What is ORM?
+What is the difference between Hibernate and JPA?
+What is the advantage of using an ORM framework?
+What is a Session Factory?
+What is a Session?
+What is the name of the configuration file for configuring Hibernate?
+What is the purpose of @Entity annotation?
+What is the purpose of @Table annotation?
+What is the purpose of @Id annotation?
+What is the purpose of @GeneratedValue annotation?
+What is the purpose of @Column annotation?
+What is the default fetch type for @ManyToOne annotation?
+When to use eager fetch?
+What is the method in session to get an entity based on primary key?
+What is the method in session to insert an entity?
+What is the method in session to update an entity?
+What is the method in session to delete an entity?
+What is the syntax to define joins in HQL?
+What is the purpose of fetch keyword in HQL?
+What is a named query?
+What is a native query?
+What is Criteria API?
+What is the purpose of Caching in Hibernate?
+What is Level 1 caching in Hibernate?
+What is Level 2 caching in Hibernate?
+
+Jenkins
+=======
+What is the purpose of Jenkins?
+List the steps to install Jenkins?
+What is the plugin required to use maven?
+In which section of Jenkins do we configure plugins?
+In which section do we configure Maven?
+List the steps to create a build a build for a Maven project?
+How to manually trigger the build in Jenkins?
+How does Jenkins helps in continuous delivery?
+What is a Jenkins pipeline?
+How to configure a Jenkins pipeline?
+How to configure a Jenkins pipeline with Git?
+
+AWS
+===
+What is RDS?
+What is EC2?
+What is EBS?
+What is S3?
+How to create a Linux server instance in AWS?
+What is the difference between EBS and S3?
+How to connect to a linux server from our desktop?
+What is an inbound rule?
+What is an outbound rule?
+
+Linux
+=====
+What is the command to list files and directories?
+What is the command to view the current directory?
+What is the command to make a directory?
+What are the text editors available in linux?
+What is the command to view the contents of a text file?
+What is the command to switch to super user?
+
+Docker
+======
+What is Docker?
+Docker works in a client server architecture [true / false]
+What is Docker Daemon?
+What is registry of Docker?
+What is an image?
+What is a container?
+What is the command to start the docker in linux?
+What is the command to view the list of images?
+What is the command to start an image as container?
+What is the command to view the list of containers?
+What is the command to remove an image?
+What is the command to stop a running container?
+What is a Dockerfile?
+What is docker compose?

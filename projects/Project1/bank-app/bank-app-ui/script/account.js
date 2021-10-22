@@ -17,7 +17,7 @@ async function getAccounts() {
         </div>
         <div class="card-footer"><a href="10-deposit.html?id=${account.accountNo}" class="btn btn-primary mr-auto mb-3">Deposit</a>
         <a href="11-withdraw.html?id=${account.accountNo}" class="btn btn-primary mr-auto mb-3">Withdraw</a>
-        <a href="transactions.html?id=${account.accountNo}" class="btn btn-primary mr-auto mb-3">Transactions</a></div>
+        <a href="04-Transction.html?id=${account.accountNo}" class="btn btn-primary mr-auto mb-3">Transactions</a></div>
       </div>
         </div>
         </div>` }

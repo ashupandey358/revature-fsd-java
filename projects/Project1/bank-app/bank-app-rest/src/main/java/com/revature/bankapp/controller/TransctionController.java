@@ -94,12 +94,13 @@ public class TransctionController {
 			}
 		
 		@GET
+		@Path("/{accountNo}")
 		@Produces(MediaType.APPLICATION_JSON)
-		public Response getTransactions(Transction transction) {
+		public Response getTransactions(@PathParam("accountNo") String accountNo) {
 			LOGGER.info("Transactions method called");
-			LOGGER.debug("{}", transction);
+			LOGGER.debug("{}", accountNo);
 			try {
-				List<Transction> transactionList = dao.viewTransctionforSpecificAccount(transction.getAccountNumber());
+				List<Transction> transactionList = dao.viewTransctionforSpecificAccount(accountNo);
 				LOGGER.info("Transaction got successfuly");
 				return Response.ok().entity(transactionList).build();
 			} catch (AppException e) {

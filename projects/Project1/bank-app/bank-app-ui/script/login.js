@@ -4,9 +4,10 @@ let password = document.getElementById("password");
 let emailError = document.getElementById("emailError");
 let passworderror = document.getElementById("password");
 error.style.display = "none";
-
+console.log(password)
 submit.addEventListener("click", async function forLogin() {
     try {
+        
         let data = await fetch("http://localhost:8080/bank-app-rest/customers/" + emailid.value + "/" + password.value);
         let customerDetails = await data.json();
         if (data.status == 200) {  

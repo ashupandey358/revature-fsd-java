@@ -13,7 +13,7 @@
     <title>Sign up</title>
 </head>
 
-<body>
+<body background="images/background.jpg">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="01-homebank.html">
             <img src="images/istockphoto-1272385876-170667a.jpg" width="30" height="30" class="d-inline-block align-top"
@@ -73,6 +73,11 @@
 
     <div class="container mt-2">
         <h1><span class="badge bg-secondary">Employee Form</span></h1>
+        
+        <div id="success" class="alert alert-success"  ></div>
+       
+        <div id="error" class="alert alert-danger"></div>
+
     </div>
 
 
@@ -80,23 +85,37 @@
         <div class="mb-3">
             <label for="Id" class="form-label"></label>
             <input type="text" class="form-control" id="ID" placeholder="ID Number">
+            <div style="color: black; font-size:large" id="idError"
+            class="validation-error col-md-4 mt-2 mx-3 alert-danger"></div>
         </div>
+        
         <div class="row g-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Name" aria-label="Name">
+                <label for="Name" class="form-label"></label>
+                <input type="text" class="form-control" placeholder="Name" id="Name" aria-label="Name">
+                <div style="color: black; font-size:large" id="nameError"
+                class="validation-error col-md-4 mt-2 mx-3 alert-danger"></div>
             </div>
+            
             <div class="col">
-                <input type="text" class="form-control" placeholder=" Email" aria-label="Email Id">
+                <label for="Email" class="form-label"></label>
+                <input type="text" class="form-control" placeholder=" Email" aria-label="Email Id" id="Email">
+                <div style="color: black; font-size:large" id="emailidError"
+                    class="validation-error col-md-4 mt-2 mx-3 alert-danger"></div>
             </div>
+
         </div>
         <form class="row g-3">
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label"></label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Password">
+                <label for="Password" class="form-label"></label>
+                <input type="password" class="form-control" id="Password" placeholder="Password">
+                <div style="color: black; font-size:large" id="passwordError"
+                    class="validation-error col-md-4 mt-2 mx-3 alert-danger"></div>
             </div>
+
             <div class="col-md-6 mt-4 row g-3 ">
-                <label for="inputPassword4" class="form-label"></label>
-                <select id="inputState" class="form-select" placeholder="Department">
+                <label for="dep" class="form-label"></label>
+                <select id="dep" class="form-select" placeholder="Department">
                     <option selected>Choose...</option>
                     <option>Hr</option>
                     <option>Manager</option>
@@ -121,12 +140,12 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="button" id="submit" class="btn btn-primary" onclick="onClickingButton()">Sign in</button>
         </div>
     </div>
     </form>
 
-
+    <script src="script/signupemployee.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

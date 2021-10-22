@@ -1,11 +1,13 @@
 a:visited {
     color: blue
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
-  }
-  
-  .active-link {
+    color: blue;
+    cursor: pointer
+}
+
+.active-link {
     border-bottom: solid 1px blue
-  }
+}

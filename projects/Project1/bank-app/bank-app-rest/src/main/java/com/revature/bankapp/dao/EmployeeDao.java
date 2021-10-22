@@ -7,6 +7,6 @@ import com.revature.bankapp.exception.AppException;
 import com.revature.banknew.model.Employee;
 
 public interface EmployeeDao {
-	void employeeData(Employee employee) throws SQLException;
-	public ArrayList<Employee> getEmail() throws AppException;
+	void create(Employee employee) throws AppException;
+	public Employee getLoginDetails(String email) throws AppException;
 }
